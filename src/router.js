@@ -1,23 +1,24 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import Home from './views/Home.vue'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
 
-Vue.use(Router)
 
-export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'home',
-      component: Home
-    },
-    {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
-    }
-  ]
+Vue.use(VueRouter);
+
+export default new VueRouter({
+    routes:[
+        {
+            path:'/',
+            component:()=>import('./views/home/index.vue'),
+            children:[
+                {path:'films',component:()=>import('./views/home/films.vue')},
+                {path:'cinemas',component:()=>import('./views/home/cinemas.vue')},
+                {path:'center',component:()=>import('./views/home/center.vue')},
+                {path:'/film/filmsId',component:()=>import('./views/film/index.vue')},
+                {path:'/city',component:()=>import('./views/city/index.vue')},
+                {path:'',redirect:'./films'},
+                {path:'*',redirect:'/films'}
+            ]
+        }
+    ]
 })
+
