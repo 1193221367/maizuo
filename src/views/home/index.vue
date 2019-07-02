@@ -1,13 +1,38 @@
+
+
 <template>
     <div class="page-home">
         <router-view></router-view>
-        <h1>承载页</h1>
+        <Tabbar :tabs="[
+            {name:'电影',icon:'icon-dianying',to:'/films'},
+            {name:'影院',icon:'icon-yingyuana',to:'/cinemas'},
+            {name:'特惠',icon:'icon-youhui',to:'/film'},
+            {name:'我的',icon:'icon-wode',to:'/center'},
+        ]"/>
     </div>
 </template>
 
 <script>
+import Tabbar from '@/components/tabbar/index.vue';
 export default {
-    name:'home'
+    name:'home',
+    components:{
+        Tabbar,
+    }
 }
 </script>
+
+
+<style lang="scss">
+    .page-home{
+        height:100%;
+        display:flex;
+        flex-direction: column;
+        >div:first-child{
+            flex:1;
+            overflow-y: auto;
+        }
+    }
+</style>
+
 
