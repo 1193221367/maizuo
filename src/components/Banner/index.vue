@@ -73,7 +73,7 @@ export default {
             let container = this.$refs.banner;
             this.mySwiper = new Swiper(container,{
                 loop: this.loop,
-                // autoplay:true,
+                autoplay:true,
                 pagination: this.pagination ? {
                     el: '.swiper-pagination',
                 }

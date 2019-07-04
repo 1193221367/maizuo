@@ -13,12 +13,14 @@ export default new VueRouter({
                 {path:'films',component:()=>import('./views/home/films.vue')},
                 {path:'cinemas',component:()=>import('./views/home/cinemas.vue')},
                 {path:'center',component:()=>import('./views/home/center.vue')},
-                {path:'/film/filmsId',component:()=>import('./views/film/index.vue')},
-                {path:'/city',component:()=>import('./views/city/index.vue')},
                 {path:'',redirect:'./films'},
-                {path:'*',redirect:'/films'}
             ]
-        }
+        },
+            {path:'/film/:filmId',name:'film',component:()=>import('./views/film/index.vue')},
+            {path:'/city',component:()=>import('./views/city/index.vue')},
+            {path:'*',redirect:'/films'}
+            
+        
     ]
 })
 

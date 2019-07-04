@@ -6,7 +6,6 @@
         <Tabbar :tabs="[
             {name:'电影',icon:'icon-dianying',to:'/films'},
             {name:'影院',icon:'icon-yingyuana',to:'/cinemas'},
-            {name:'特惠',icon:'icon-youhui',to:'/film'},
             {name:'我的',icon:'icon-wode',to:'/center'},
         ]"/>
     </div>
