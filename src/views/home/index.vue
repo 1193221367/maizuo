@@ -2,7 +2,7 @@
 
 <template>
     <div class="page-home">
-        <router-view></router-view>
+            <router-view></router-view>
         <Tabbar :tabs="[
             {name:'电影',icon:'icon-dianying',to:'/films'},
             {name:'影院',icon:'icon-yingyuana',to:'/cinemas'},
@@ -17,7 +17,10 @@ export default {
     name:'home',
     components:{
         Tabbar,
-    }
+    },
+    // beforeDestroy(){
+    //     console.log("home destroy")
+    // }
 }
 </script>
 

@@ -43,7 +43,7 @@ const mutations = {
 
 const actions = {
     getBannerList( {commit} ){
-        axios.get('https://m.maizuo.com/gateway?type=2&cityId=440300&k=3747770',{
+        axios.get('https://m.maizuo.com/gateway?type=2&cityId=110100&k=1633668',{
             headers:{
                 'X-Client-Info':'{"a":"3000","ch":"1002","v":"5.0.4","e":"156196531434359738595"}',
                 'X-Host':'mall.cfg.common-banner'
@@ -61,11 +61,11 @@ const actions = {
         })
     },
     //ChangeFilmType    boolean     是否是切换影片类型之后的获取数据
-    getFilmList( {commit,state}, ChangeFilmType){
+    getFilmList( {commit,state,rootState},ChangeFilmType){
         // 判断ChangeFilmType
         if(ChangeFilmType){
             //清空filmList
-            commit({type:'setFilmList',list:[],total:1})
+            // commit({type:'setFilmList',list:[],total:1})
             //将pageNum设置为1
             commit({type:'setPageNum',num:1})
         }
@@ -77,7 +77,7 @@ const actions = {
         axios.get('https://m.maizuo.com/gateway',{
                 
             params:{
-                cityId:440300,
+                cityId:rootState.city.curCityId,
                 pageNum:state.pageNum,
                 pageSize:state.pageSize,
                 type:state.curFilmType === 0 ? 1 : 2,
@@ -100,7 +100,7 @@ const actions = {
                     // list:state.filmList.concat(res.data.films),  ok
                     // list:state.filmList.push(res.data.films),   no
                     // list:state.filmList.push(...res.data.films),   ok
-                    list:[...state.filmList, ...res.data.films],   //ok
+                    list:ChangeFilmType ? res.data.films : [...state.filmList, ...res.data.films],   //ok
                     total:res.data.total
                 })
             }else{

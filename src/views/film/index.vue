@@ -6,7 +6,10 @@
 
 <script>
 export default {
-    name:'film'
+    name:'film',
+    // beforeDestroy(){
+    //     console.log("film destroy")
+    // }
 }
 </script>
 
