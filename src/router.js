@@ -18,6 +18,7 @@ export default new VueRouter({
         },
             {path:'/film/:filmId',name:'film',component:()=>import('./views/film/index.vue')},
             {path:'/city',component:()=>import('./views/city/index.vue')},
+            {path:'/login',component:()=>import('./views/login/index.vue')},
             {path:'*',redirect:'/films'}
             
         
